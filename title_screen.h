@@ -6,6 +6,7 @@
 #include "text.h"
 
 #include "space.h"
+#include "platform.h"
 
 class TitleScreen : public Screen {
   public:
@@ -21,4 +22,5 @@ class TitleScreen : public Screen {
 
     Text text_;
     Space space_;
+    Platform platform_;
 };
