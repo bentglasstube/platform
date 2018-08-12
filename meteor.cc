@@ -38,11 +38,10 @@ bool Meteor::update(const Player& player, Platform& platform, unsigned int elaps
       hit_ = true;
       return true;
     }
+  }
 
-    if (y_ > 204) {
-      platform.hit(x_);
-      hit_ = true;
-    }
+  if (y_ > 204 && y_ < 212) {
+    platform.hit(x_);
   }
 
   return false;
