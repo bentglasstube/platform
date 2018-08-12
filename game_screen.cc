@@ -25,7 +25,12 @@ bool GameScreen::update(const Input& input, Audio& audio, unsigned int elapsed) 
     meteors_.emplace_back();
   }
 
-  return alive;
+  if (!alive) {
+    audio.play_sample("gameover.wav");
+    return false;
+  }
+
+  return true;
 }
 
 void GameScreen::draw(Graphics& graphics) const {
