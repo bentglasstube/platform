@@ -2,7 +2,7 @@
 
 #include "title_screen.h"
 
-GameScreen::GameScreen() : text_("text.png"), score_(0), space_(), timer_(3000) {}
+GameScreen::GameScreen() : text_("text.png"), score_(0), timer_(3000), space_() {}
 
 bool GameScreen::update(const Input& input, Audio& audio, unsigned int elapsed) {
   if (!player_.jumping()) {
@@ -18,9 +18,10 @@ bool GameScreen::update(const Input& input, Audio& audio, unsigned int elapsed) 
     if (m.update(player_, platform_, elapsed)) ++score_;
   }
 
-  timer_ += elapsed;
-  if (timer_ > 5000) {
-    timer_ -= 5000;
+  timer_ -= elapsed;
+  if (timer_ < 0) {
+    // TODO random decreasing time
+    timer_ += 500;
     meteors_.emplace_back();
   }
 
