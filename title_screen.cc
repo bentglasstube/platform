@@ -9,6 +9,7 @@ bool TitleScreen::update(const Input& input, Audio&, unsigned int) {
 }
 
 void TitleScreen::draw(Graphics& graphics) const {
+  space_.draw(graphics);
   text_.draw(graphics, "Press Any Key", 128, 176, Text::Alignment::Center);
 }
 

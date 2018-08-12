@@ -5,6 +5,8 @@
 #include "screen.h"
 #include "text.h"
 
+#include "space.h"
+
 class TitleScreen : public Screen {
   public:
 
@@ -18,4 +20,5 @@ class TitleScreen : public Screen {
   private:
 
     Text text_;
+    Space space_;
 };
