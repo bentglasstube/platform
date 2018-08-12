@@ -40,7 +40,7 @@ pkg_winzip(
 
 pkg_tar(
     name = "ld42-linux",
-    extension = "tar.gz",
+    extension = "tgz",
     srcs = [
         ":ld42",
         "//content",
