@@ -2,7 +2,9 @@
 
 #include "title_screen.h"
 
-GameScreen::GameScreen() : text_("text.png"), score_(0), timer_(3000), space_() {}
+GameScreen::GameScreen() : text_("text.png"), score_(0), timer_(3000), spawn_timer_(2500), space_(), rand_() {
+  rand_.seed(Util::random_seed());
+}
 
 bool GameScreen::update(const Input& input, Audio& audio, unsigned int elapsed) {
   if (!player_.jumping()) {
@@ -15,13 +17,19 @@ bool GameScreen::update(const Input& input, Audio& audio, unsigned int elapsed) 
   const bool alive = player_.update(platform_, audio, elapsed);
 
   for (auto& m : meteors_) {
-    if (m.update(player_, platform_, audio, elapsed)) ++score_;
+    if (m.update(player_, platform_, audio, elapsed)) {
+      ++score_;
+      if (score_ % 10 == 0) {
+        spawn_timer_ -= 250;
+        if (spawn_timer_ < 500) spawn_timer_ = 500;
+      }
+    }
   }
 
   timer_ -= elapsed;
   if (timer_ < 0) {
-    // TODO random decreasing time
-    timer_ += 500;
+    std::uniform_int_distribution<int> d(-50, 50);
+    timer_ += spawn_timer_ + d(rand_);
     meteors_.emplace_back();
   }
 
@@ -37,7 +45,7 @@ void GameScreen::draw(Graphics& graphics) const {
   space_.draw(graphics);
   player_.draw(graphics);
   platform_.draw(graphics);
-  text_.draw(graphics, std::to_string(score_), 256, 0, Text::Alignment::Right);
+  text_.draw(graphics, std::to_string(spawn_timer_), 256, 0, Text::Alignment::Right);
 
   for (const auto m : meteors_) {
     m.draw(graphics);

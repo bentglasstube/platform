@@ -1,5 +1,6 @@
 #pragma once
 
+#include <random>
 #include <vector>
 
 #include "graphics.h"
@@ -25,9 +26,10 @@ class GameScreen : public Screen {
   private:
 
     Text text_;
-    int score_, timer_;
+    int score_, timer_, spawn_timer_;
     Player player_;
     Space space_;
     Platform platform_;
     std::vector<Meteor> meteors_;
+    std::mt19937 rand_;
 };
