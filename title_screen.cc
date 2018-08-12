@@ -13,7 +13,7 @@ void TitleScreen::draw(Graphics& graphics) const {
   space_.draw(graphics);
   platform_.draw(graphics);
 
-  title_.draw(graphics, 0, 0);
+  title_.draw(graphics, 0, 16);
 
   text_.draw(graphics, "Defend the platform", 128, 120, Text::Alignment::Center);
   text_.draw(graphics, "Arrows - Move", 128, 136, Text::Alignment::Center);
