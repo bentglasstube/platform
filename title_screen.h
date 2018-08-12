@@ -3,6 +3,7 @@
 #include "graphics.h"
 #include "input.h"
 #include "screen.h"
+#include "sprite.h"
 #include "text.h"
 
 #include "space.h"
@@ -21,6 +22,7 @@ class TitleScreen : public Screen {
   private:
 
     Text text_;
+    Sprite title_;
     Space space_;
     Platform platform_;
 };

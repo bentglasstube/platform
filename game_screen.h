@@ -6,6 +6,7 @@
 #include "graphics.h"
 #include "input.h"
 #include "screen.h"
+#include "sprite.h"
 #include "text.h"
 
 #include "meteor.h"
