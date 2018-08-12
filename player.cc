@@ -30,7 +30,9 @@ bool Player::update(const Platform& platform, Audio& audio, unsigned int elapsed
 }
 
 void Player::draw(Graphics& graphics) const {
-  const int s = vx_ == 0 ? 0 : (frame_ < 150 ? 2 : 4);
+  int s = 0;
+  if (vx_ != 0) s = frame_ < 150 ? 1 : 2;
+  if (vy_ > 0) s = 3;
   sprites_.draw(graphics, s, (int)(x_ - 4), (int)(y_ - 16));
 }
 
