@@ -25,10 +25,8 @@ class Player {
 
   private:
 
-    enum class Facing { Left, Right };
-
     float x_, y_, vx_, vy_;
-    Facing facing_;
+    int frame_;
     bool jumping_;
     SpriteMap sprites_;
 
