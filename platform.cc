@@ -6,10 +6,22 @@ Platform::Platform() {
   }
 }
 
+void Platform::update(unsigned int elapsed) {
+  for (int i = 0; i < 32; ++i) {
+    if (chunks_[i] < 0) {
+      chunks_[i] -= elapsed;
+      if (chunks_[i] < -1000) chunks_[i] = 0;
+    }
+  }
+}
+
 void Platform::draw(Graphics& graphics) const {
   for (int i = 0; i < 32; ++i) {
     if (chunks_[i] > 0) {
       SDL_Rect r = { i * 8 , 208, 8, 4 };
+      graphics.draw_rect(&r, 0xffffffff, false);
+    } else if (chunks_[i] < 0) {
+      SDL_Rect r = { i * 8, 208 - chunks_[i] / 25, 8, 4 };
       graphics.draw_rect(&r, 0xffffffff, false);
     }
   }
@@ -23,7 +35,7 @@ void Platform::hit(Audio& audio, float x) {
 
   if (chunks_[piece] > 0) {
     audio.play_sample("break.wav");
-    chunks_[piece] = 0;
+    chunks_[piece] = -1;
   }
 }
 

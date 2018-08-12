@@ -26,6 +26,8 @@ bool GameScreen::update(const Input& input, Audio& audio, unsigned int elapsed) 
     }
   }
 
+  platform_.update(elapsed);
+
   timer_ -= elapsed;
   if (timer_ < 0) {
     std::uniform_int_distribution<int> d(-50, 50);
@@ -45,7 +47,7 @@ void GameScreen::draw(Graphics& graphics) const {
   space_.draw(graphics);
   player_.draw(graphics);
   platform_.draw(graphics);
-  text_.draw(graphics, std::to_string(spawn_timer_), 256, 0, Text::Alignment::Right);
+  text_.draw(graphics, std::to_string(score_), 256, 0, Text::Alignment::Right);
 
   for (const auto m : meteors_) {
     m.draw(graphics);
