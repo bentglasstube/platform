@@ -1,6 +1,7 @@
 #pragma once
 
 #include "graphics.h"
+#include "spritemap.h"
 
 #include "player.h"
 #include "platform.h"
@@ -16,5 +17,7 @@ class Meteor {
 
     float x_, y_, vx_, vy_;
     bool hit_;
+    int which_;
+    SpriteMap sprites_;
 
 };

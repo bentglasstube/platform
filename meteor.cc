@@ -3,9 +3,10 @@
 #include <cmath>
 #include <random>
 
-Meteor::Meteor() {
+Meteor::Meteor() : sprites_("meteors.png", 4, 8, 8) {
   std::uniform_int_distribution<int> pd(0, 32);
   std::uniform_int_distribution<int> xd(0, 256);
+  std::uniform_int_distribution<int> sd(0, 8);
 
   std::mt19937 rand;
   rand.seed(Util::random_seed());
@@ -20,6 +21,8 @@ Meteor::Meteor() {
   vy_ = std::sin(angle) * 0.1f;
 
   hit_ = false;
+
+  which_ = sd(rand);
 }
 
 bool Meteor::update(const Player& player, Platform& platform, unsigned int elapsed) {
@@ -48,5 +51,5 @@ bool Meteor::update(const Player& player, Platform& platform, unsigned int elaps
 }
 
 void Meteor::draw(Graphics& graphics) const {
-  graphics.draw_circle(x_, y_, 4, 0xffffffff, false);
+  sprites_.draw(graphics, which_, x_ - 4, y_ - 4);
 };

@@ -107,6 +107,7 @@ cc_library(
     hdrs = [ "meteor.h" ],
     deps = [
         "@libgam//:graphics",
+        "@libgam//:spritemap",
         ":player",
     ],
 )
