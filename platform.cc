@@ -17,11 +17,13 @@ void Platform::update(unsigned int elapsed) {
 
 void Platform::draw(Graphics& graphics) const {
   for (int i = 0; i < 32; ++i) {
-    if (chunks_[i] > 0) {
-      SDL_Rect r = { i * 8 , 208, 8, 4 };
-      graphics.draw_rect(&r, 0xffffffff, false);
-    } else if (chunks_[i] < 0) {
-      SDL_Rect r = { i * 8, 208 - chunks_[i] / 25, 8, 4 };
+    int y = 0;
+    if (chunks_[i] > 0) y = 208;
+    else if (chunks_[i] < 0) y = 208 - chunks_[i] / 25;
+
+    if (y > 0) {
+      SDL_Rect r = { i * 8, y, 8, 4 };
+      graphics.draw_rect(&r, 0x000000ff, true);
       graphics.draw_rect(&r, 0xffffffff, false);
     }
   }

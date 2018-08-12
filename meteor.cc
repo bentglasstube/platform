@@ -6,7 +6,7 @@
 Meteor::Meteor() : sprites_("meteors.png", 4, 8, 8) {
   std::uniform_int_distribution<int> pd(0, 31);
   std::uniform_int_distribution<int> xd(0, 255);
-  std::uniform_int_distribution<int> sd(0, 7);
+  std::uniform_int_distribution<int> sd(0, 15);
 
   std::mt19937 rand;
   rand.seed(Util::random_seed());
