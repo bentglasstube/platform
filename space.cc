@@ -5,9 +5,9 @@
 #include <random>
 
 Space::Space() {
-  std::uniform_int_distribution<int> xd(0, 255);
+  std::uniform_int_distribution<int> xd(0, 256);
   std::uniform_int_distribution<int> yd(0, 240);
-  std::uniform_int_distribution<int> cd(0, 63);
+  std::uniform_int_distribution<int> cd(0, 64);
 
   std::mt19937 rand;
   rand.seed(Util::random_seed());
@@ -26,8 +26,13 @@ Space::Space() {
 
 
 void Space::draw(Graphics& graphics) const {
+  std::uniform_int_distribution<int> twinkle(0, 64);
+  std::mt19937 rand;
+  rand.seed(Util::random_seed());
+
   for (const auto s : stars_) {
     const int c = s.r << 24 | s.g << 16 | s.b << 8 | 0xc0c0c0ff;
-    graphics.draw_pixel(s.x, s.y, c);
+
+    if (twinkle(rand) != 0) graphics.draw_pixel(s.x, s.y, c);
   }
 }
