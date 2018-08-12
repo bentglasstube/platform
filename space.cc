@@ -5,9 +5,9 @@
 #include <random>
 
 Space::Space() {
-  std::uniform_int_distribution<int> xd(0, 256);
-  std::uniform_int_distribution<int> yd(0, 240);
-  std::uniform_int_distribution<int> cd(0, 64);
+  std::uniform_int_distribution<int> xd(0, 255);
+  std::uniform_int_distribution<int> yd(0, 239);
+  std::uniform_int_distribution<int> cd(0, 63);
 
   std::mt19937 rand;
   rand.seed(Util::random_seed());
