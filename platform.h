@@ -17,4 +17,6 @@ class Platform {
 
     int chunks_[32];
 
+    bool attached(int i) const;
+
 };

@@ -99,6 +99,7 @@ cc_library(
     deps = [
         "@libgam//:audio",
         "@libgam//:graphics",
+        "@libgam//:util",
     ],
 )
 
