@@ -10,7 +10,7 @@ class Meteor {
   public:
 
     Meteor();
-    bool update(const Player& player, Platform& platform, unsigned int elapsed);
+    bool update(const Player& player, Platform& platform, Audio& audio, unsigned int elapsed);
     void draw(Graphics& graphics) const;
 
   private:

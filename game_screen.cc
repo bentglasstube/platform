@@ -15,7 +15,7 @@ bool GameScreen::update(const Input& input, Audio& audio, unsigned int elapsed) 
   const bool alive = player_.update(platform_, audio, elapsed);
 
   for (auto& m : meteors_) {
-    if (m.update(player_, platform_, elapsed)) ++score_;
+    if (m.update(player_, platform_, audio, elapsed)) ++score_;
   }
 
   timer_ -= elapsed;

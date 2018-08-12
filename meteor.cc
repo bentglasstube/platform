@@ -25,7 +25,7 @@ Meteor::Meteor() : sprites_("meteors.png", 4, 8, 8) {
   which_ = sd(rand);
 }
 
-bool Meteor::update(const Player& player, Platform& platform, unsigned int elapsed) {
+bool Meteor::update(const Player& player, Platform& platform, Audio& audio, unsigned int elapsed) {
   x_ += vx_ * elapsed;
   y_ += vy_ * elapsed;
 
@@ -39,6 +39,7 @@ bool Meteor::update(const Player& player, Platform& platform, unsigned int elaps
       vy_ = std::sin(angle) * -0.15f;
 
       hit_ = true;
+      audio.play_sample("bounce.wav");
       return true;
     }
   }
