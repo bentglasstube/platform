@@ -9,7 +9,7 @@ bool GameScreen::update(const Input& input, Audio& audio, unsigned int elapsed) 
     player_.stop();
     if (input.key_held(Input::Button::Left)) player_.move(-1);
     if (input.key_held(Input::Button::Right)) player_.move(1);
-    if (input.key_pressed(Input::Button::A)) player_.jump(platform_);
+    if (input.key_pressed(Input::Button::A)) player_.jump(platform_, audio);
   }
 
   const bool alive = player_.update(platform_, audio, elapsed);

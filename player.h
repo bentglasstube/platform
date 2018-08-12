@@ -17,7 +17,7 @@ class Player {
 
     void move(int dir);
     void stop();
-    void jump(const Platform& platform);
+    void jump(const Platform& platform, Audio& audio);
     bool jumping() const;
 
     float x() const { return x_; }

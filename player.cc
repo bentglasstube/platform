@@ -42,10 +42,11 @@ void Player::stop() {
   vx_ = 0;
 }
 
-void Player::jump(const Platform& platform) {
+void Player::jump(const Platform& platform, Audio& audio) {
   if (!jumping_ && vy_ == 0 && touching(platform)) {
     vy_ = -0.3;
     jumping_ = true;
+    audio.play_sample("jump.wav");
   }
 }
 
