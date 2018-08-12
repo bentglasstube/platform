@@ -4,7 +4,8 @@
 
 TitleScreen::TitleScreen() : text_("text.png") {}
 
-bool TitleScreen::update(const Input& input, Audio&, unsigned int) {
+bool TitleScreen::update(const Input& input, Audio& audio, unsigned int) {
+  if (!audio.music_playing()) audio.play_music("space.ogg");
   return !input.any_pressed();
 }
 
