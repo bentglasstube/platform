@@ -77,6 +77,7 @@ cc_library(
         "@libgam//:audio",
         "@libgam//:graphics",
         "@libgam//:input",
+        "@libgam//:spritemap",
         ":platform",
     ],
 )

@@ -1,6 +1,6 @@
 #include "player.h"
 
-Player::Player() : x_(128), y_(208), vx_(0), vy_(0), facing_(Player::Facing::Left), jumping_(true) {}
+Player::Player() : x_(128), y_(208), vx_(0), vy_(0), facing_(Player::Facing::Left), jumping_(true), sprites_("spaceman.png", 16, 8, 16)  {}
 
 bool Player::update(const Platform& platform, Audio& audio, unsigned int elapsed) {
   vy_ = vy_ + kGravity * elapsed;
@@ -25,8 +25,7 @@ bool Player::update(const Platform& platform, Audio& audio, unsigned int elapsed
 }
 
 void Player::draw(Graphics& graphics) const {
-  SDL_Rect r { (int)(x_ - 4), (int)(y_ - 16), 8, 16 };
-  graphics.draw_rect(&r, 0xd8ff00ff, false);
+  sprites_.draw(graphics, 0, (int)(x_ - 4), (int)(y_ - 16));
 }
 
 void Player::move(int dir) {

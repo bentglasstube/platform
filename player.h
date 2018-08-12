@@ -3,6 +3,8 @@
 #include "audio.h"
 #include "graphics.h"
 #include "input.h"
+#include "spritemap.h"
+
 #include "platform.h"
 
 class Player {
@@ -28,6 +30,7 @@ class Player {
     float x_, y_, vx_, vy_;
     Facing facing_;
     bool jumping_;
+    SpriteMap sprites_;
 
     static constexpr float kGravity = 0.001;
 
