@@ -45,7 +45,7 @@ bool Meteor::update(const Player& player, Platform& platform, Audio& audio, unsi
   }
 
   if (y_ > 204 && y_ < 212) {
-    platform.hit(x_);
+    platform.hit(audio, x_);
   }
 
   return false;

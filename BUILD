@@ -97,6 +97,7 @@ cc_library(
     srcs = [ "platform.cc" ],
     hdrs = [ "platform.h" ],
     deps = [
+        "@libgam//:audio",
         "@libgam//:graphics",
     ],
 )

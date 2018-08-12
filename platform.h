@@ -1,5 +1,6 @@
 #pragma once
 
+#include "audio.h"
 #include "graphics.h"
 
 class Platform {
@@ -8,7 +9,7 @@ class Platform {
     Platform();
     void draw(Graphics& graphics) const;
 
-    void hit(float x);
+    void hit(Audio& audio, float x);
     bool exists(float x) const;
 
   private:

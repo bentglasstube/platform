@@ -15,13 +15,16 @@ void Platform::draw(Graphics& graphics) const {
   }
 }
 
-void Platform::hit(float x) {
+void Platform::hit(Audio& audio, float x) {
   const int piece = x / 8;
 
   if (piece < 0) return;
   if (piece >= 32) return;
 
-  if (chunks_[piece] > 0) chunks_[piece] = 0;
+  if (chunks_[piece] > 0) {
+    audio.play_sample("break.wav");
+    chunks_[piece] = 0;
+  }
 }
 
 bool Platform::exists(float x) const {
