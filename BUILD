@@ -11,7 +11,7 @@ config_setting(
 )
 
 cc_binary(
-    name = "ld42",
+    name = "platform",
     data = ["//content"],
     linkopts = select({
         ":windows": ["-mwindows", "-lSDL2main" ],
@@ -31,18 +31,18 @@ cc_binary(
 )
 
 pkg_winzip(
-    name = "ld42-windows",
+    name = "platform-windows",
     files = [
-        ":ld42",
+        ":platform",
         "//content",
     ]
 )
 
 pkg_tar(
-    name = "ld42-linux",
+    name = "platform-linux",
     extension = "tgz",
     srcs = [
-        ":ld42",
+        ":platform",
         "//content",
     ],
 )
