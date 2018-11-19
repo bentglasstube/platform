@@ -64,7 +64,7 @@ cc_library(
         "@libgam//:spritemap",
         "@libgam//:text",
         ":meteor",
-        ":platform",
+        ":plat",
         ":player",
         ":space",
     ],
@@ -79,7 +79,7 @@ cc_library(
         "@libgam//:graphics",
         "@libgam//:input",
         "@libgam//:spritemap",
-        ":platform",
+        ":plat",
     ],
 )
 
@@ -94,7 +94,7 @@ cc_library(
 )
 
 cc_library(
-    name = "platform",
+    name = "plat",
     srcs = [ "platform.cc" ],
     hdrs = [ "platform.h" ],
     deps = [
