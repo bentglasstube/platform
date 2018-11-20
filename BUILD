@@ -40,7 +40,7 @@ pkg_winzip(
 
 pkg_tar(
     name = "platform-linux",
-    extension = "tgz",
+    extension = "tar.gz",
     srcs = [
         ":platform",
         "//content",
