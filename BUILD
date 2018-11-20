@@ -41,6 +41,8 @@ pkg_winzip(
 pkg_tar(
     name = "platform-linux",
     extension = "tar.gz",
+    strip_prefix = "/",
+    package_dir = "platform/",
     srcs = [
         ":platform",
         "//content",
