@@ -2,7 +2,7 @@
 
 Player::Player() : x_(128), y_(208), vx_(0), vy_(0), frame_(0), jumping_(true), sprites_("spaceman.png", 16, 8, 16)  {}
 
-bool Player::update(const Platform& platform, Audio& audio, unsigned int elapsed) {
+bool Player::update(const Platform& platform, Audio&, unsigned int elapsed) {
   vy_ = vy_ + kGravity * elapsed;
   if (vy_ > 0.1f) vy_ = 0.1f;
 

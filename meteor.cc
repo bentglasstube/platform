@@ -53,4 +53,4 @@ bool Meteor::update(const Player& player, Platform& platform, Audio& audio, unsi
 
 void Meteor::draw(Graphics& graphics) const {
   sprites_.draw(graphics, which_, x_ - 4, y_ - 4);
-};
+}

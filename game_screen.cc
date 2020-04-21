@@ -51,7 +51,7 @@ void GameScreen::draw(Graphics& graphics) const {
   platform_.draw(graphics);
   text_.draw(graphics, std::to_string(score_), 256, 0, Text::Alignment::Right);
 
-  for (const auto m : meteors_) {
+  for (const auto& m : meteors_) {
     m.draw(graphics);
   }
 }
