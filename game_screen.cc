@@ -7,7 +7,7 @@ GameScreen::GameScreen() : text_("text.png"), score_(0), timer_(3000), spawn_tim
 }
 
 bool GameScreen::update(const Input& input, Audio& audio, unsigned int elapsed) {
-  if (!audio.music_playing()) audio.play_music("space.ogg");
+  audio.play_music("space.ogg", true);
 
   if (!player_.jumping()) {
     player_.stop();
